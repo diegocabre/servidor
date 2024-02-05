@@ -21,9 +21,9 @@ const pgClient = new Client({
 pgClient.connect();
 
 // Ruta GET para obtener registros
-app.get("/likeme", async (req, res) => {
+app.get("/posts", async (req, res) => {
   try {
-    const result = await pgClient.query("SELECT * FROM likeme");
+    const result = await pgClient.query("SELECT * FROM posts");
     res.json(result.rows);
   } catch (error) {
     console.error("Error al obtener registros:", error);
@@ -32,7 +32,7 @@ app.get("/likeme", async (req, res) => {
 });
 
 // Ruta POST para almacenar nuevos registros
-app.post("/likeme", async (req, res) => {
+app.post("/posts", async (req, res) => {
   try {
     const { titulo, img, descripcion } = req.body;
 
