@@ -44,7 +44,7 @@ app.post("/posts", async (req, res) => {
     }
 
     const result = await pgClient.query(
-      "INSERT INTO likeme (titulo, img, descripcion) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO posts (titulo, img, descripcion) VALUES ($1, $2, $3) RETURNING *",
       [titulo, img, descripcion]
     );
 
